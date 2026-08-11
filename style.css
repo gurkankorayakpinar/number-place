@@ -7,6 +7,8 @@
     --text-locked: #3498db;
     --border-main: #ffffff;
     --cell-border: #333333;
+    --cell-size: 55px;
+    /* %10 büyütüldü (50px -> 55px) */
 }
 
 body {
@@ -18,6 +20,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    user-select: none;
 }
 
 .game-container {
@@ -39,8 +42,8 @@ h1 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(9, 50px);
-    grid-template-rows: repeat(9, 50px);
+    grid-template-columns: repeat(9, var(--cell-size));
+    grid-template-rows: repeat(9, var(--cell-size));
     border: 3px solid var(--border-main);
     margin: 0 auto;
     background-color: var(--board-bg);
@@ -48,17 +51,18 @@ h1 {
 }
 
 .cell {
-    width: 50px;
-    height: 50px;
+    width: var(--cell-size);
+    height: var(--cell-size);
     border: 0.5px solid var(--cell-border);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1.45rem;
+    /* Rakamlar %10 büyütüldü */
     font-weight: bold;
     cursor: pointer;
-    user-select: none;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* 3x3 Bölge Sınırları */
@@ -75,20 +79,9 @@ h1 {
     border-bottom: 3px solid var(--border-main);
 }
 
-.cell.selected::before {
-    content: '';
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #d4ac0d, #9a7d0a);
-    box-shadow: 0 0 8px rgba(154, 125, 10, 0.4);
-    z-index: 0;
-}
-
-.cell span {
-    position: relative;
-    z-index: 1;
+.cell.selected {
+    background-color: rgba(255, 255, 255, 0.12);
+    background-clip: padding-box;
 }
 
 .cell.fixed {
@@ -106,7 +99,8 @@ h1 {
 }
 
 .controls {
-    margin-top: 30px;
+    margin-top: 35px;
+    /* Biraz daha mesafe */
 }
 
 .number-pad {
@@ -117,8 +111,9 @@ h1 {
 }
 
 .number-pad button {
-    padding: 12px;
-    font-size: 1.1rem;
+    padding: 14px;
+    /* Butonlar da orantılı büyütüldü */
+    font-size: 1.2rem;
     cursor: pointer;
     border: none;
     border-radius: 4px;
@@ -138,8 +133,8 @@ h1 {
 }
 
 .action-buttons button {
-    padding: 10px 25px;
-    font-size: 1rem;
+    padding: 12px 30px;
+    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
     border: none;

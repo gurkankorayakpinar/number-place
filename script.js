@@ -20,6 +20,12 @@ function startNewGame() {
     document.getElementById('level-display').innerText = `Seviye: ${currentLevel}`;
 }
 
+function confirmNewGame() {
+    if (confirm("Yeni oyun başlatmak istediğinize emin misiniz?")) {
+        startNewGame();
+    }
+}
+
 function generateFullGrid() {
     fillGrid(0, 0);
 }
@@ -119,15 +125,13 @@ function renderBoard() {
             cell.classList.add('cell');
             let boxIdx = Math.floor(r / 3) * 3 + Math.floor(c / 3);
 
-            let span = document.createElement('span');
             if (initialBoard[r][c] !== 0) {
-                span.innerText = initialBoard[r][c];
+                cell.innerText = initialBoard[r][c];
                 cell.classList.add('fixed');
             } else if (board[r][c] !== 0) {
-                span.innerText = board[r][c];
+                cell.innerText = board[r][c];
                 cell.classList.add('user');
             }
-            cell.appendChild(span);
 
             if (lockedBoxes[boxIdx]) {
                 cell.classList.add('locked');
@@ -200,3 +204,8 @@ function checkGameOver() {
         }, 300);
     }
 }
+
+// "Sağ tık ile menü açma" özelliği devre dışı
+document.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+});
