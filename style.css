@@ -8,7 +8,6 @@
     --border-main: #ffffff;
     --cell-border: #333333;
     --cell-size: 55px;
-    /* %10 büyütüldü (50px -> 55px) */
 }
 
 body {
@@ -58,7 +57,6 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 1.45rem;
-    /* Rakamlar %10 büyütüldü */
     font-weight: bold;
     cursor: pointer;
     position: relative;
@@ -100,7 +98,6 @@ h1 {
 
 .controls {
     margin-top: 35px;
-    /* Biraz daha mesafe */
 }
 
 .number-pad {
@@ -112,7 +109,6 @@ h1 {
 
 .number-pad button {
     padding: 14px;
-    /* Butonlar da orantılı büyütüldü */
     font-size: 1.2rem;
     cursor: pointer;
     border: none;

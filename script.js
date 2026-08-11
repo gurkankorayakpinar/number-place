@@ -68,7 +68,7 @@ function preparePuzzle() {
         let c = idx % 9;
         let boxIdx = Math.floor(r / 3) * 3 + Math.floor(c / 3);
 
-        // Her 3x3 bölgede en az 4 rakam kalsın ve TEK çözüm olsun.
+        // Her 3x3 bölgede en az 4 rakam kalsın (gerisi silinsin) ve TEK çözüm olsun.
         if (countInBox(board, boxIdx) > 4) {
             let temp = board[r][c];
             board[r][c] = 0;
